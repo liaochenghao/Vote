@@ -7,6 +7,8 @@ class User(models.Model):
         (1, '关注北美留学生'),
         (2, '全部关注'),
         (3, '没关注'),
+        (4, '取关问吧'),
+        (5, '取关北美'),
     )
     open_id = models.CharField('open_id', max_length=64)
     union_id = models.CharField('union_id', max_length=64)
@@ -22,7 +24,7 @@ class User(models.Model):
 
 
 class VoteRecord(models.Model):
-    open_id = models.CharField('open_id', max_length=64, primary_key=True)
+    union_id = models.CharField('union_id', max_length=64, primary_key=True)
     student = models.CharField('投票对象', max_length=30, null=True)
     create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
     modified_time = models.DateTimeField('创建时间', auto_now=True, null=True)
