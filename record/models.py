@@ -17,17 +17,28 @@ class User(models.Model):
     email = models.EmailField('邮箱', max_length=30, null=True)
     phone = models.CharField('联系手机', max_length=30, null=True)
     create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
-    modified_time = models.DateTimeField('创建时间', auto_now=True, null=True)
+    modified_time = models.DateTimeField('修改时间', auto_now=True, null=True)
 
     class Meta:
         db_table = "user"
+
+
+class SubscribeMessage(models.Model):
+    union_id = models.CharField('union_id', max_length=64)
+    usa_openid = models.CharField('北美留学生openid', max_length=64)
+    canada_openid = models.CharField('加拿大问吧openid', max_length=64)
+    create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
+    modified_time = models.DateTimeField('修改时间', auto_now=True, null=True)
+
+    class Meta:
+        db_table = "subscribe_message"
 
 
 class VoteRecord(models.Model):
     union_id = models.CharField('union_id', max_length=64, primary_key=True)
     student = models.CharField('投票对象', max_length=30, null=True)
     create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
-    modified_time = models.DateTimeField('创建时间', auto_now=True, null=True)
+    modified_time = models.DateTimeField('修改时间', auto_now=True, null=True)
 
     class Meta:
         db_table = "vote_record"
