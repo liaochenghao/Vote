@@ -29,6 +29,8 @@ class Student(models.Model):
     school = models.CharField('院校', max_length=64, null=True)
     ticket = models.IntegerField('票数', null=True)
     detail = models.CharField('自我介绍', max_length=255, null=True)
+    create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
+    modified_time = models.DateTimeField('修改时间', auto_now=True, null=True)
 
     class Meta:
         db_table = "student"
