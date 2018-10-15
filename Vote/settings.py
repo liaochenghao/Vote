@@ -3,7 +3,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -14,7 +13,6 @@ SECRET_KEY = '*=v836+38aj#5^53k7n!=jgbsb&_phea0pp0lhr8kap-hft-5c'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '*']
-
 
 # Application definition
 
@@ -118,12 +116,11 @@ LOGGING = {
     }
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'vote',
         'USER': 'root',
@@ -135,7 +132,6 @@ DATABASES = {
         'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -155,7 +151,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -169,7 +164,6 @@ USE_L10N = True
 
 USE_TZ = False
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
@@ -181,8 +175,21 @@ REDIS_CONFIG = {
     'port': 6379
 }
 
-# 微信公众号配置
-# WX_CONFIG = {
+# 北美留学生公众号配置
+# USA_WX_CONFIG = {
 #     'APP_ID': 'wx622bf44e0bee4f2b',
 #     'APP_SECRET': '97d4204adeb370336439e67bab275155'
 # }
+
+# 加拿大问吧公众号配置
+# CANADA_WX_CONFIG = {
+#     'APP_ID': 'wx622bf44e0bee4f2b',
+#     'APP_SECRET': '97d4204adeb370336439e67bab275155'
+# }
+
+
+# 生成token需要的秘钥
+SECURE_KEY = {
+    'SECRET_KEY': '785CHINASUMMER85ISWONDERFUL89HAHA42',
+    'AUTH_SALT': 'A1FE3FGE4RW5G9'
+}
