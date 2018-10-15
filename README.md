@@ -22,3 +22,6 @@
 ### API接口文档
 
 **后台接口**:
+
+- [检查账户](docs/auth/check_account.md)
+

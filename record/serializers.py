@@ -6,7 +6,8 @@ from record.models import User, VoteRecord, Student, SubscribeMessage
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['open_id', 'union_id', 'operation', 'name', 'email', 'phone', 'create_time', 'modified_time']
+        fields = ['open_id', 'union_id', 'nick_name', 'avatar_url', 'name', 'email', 'phone', 'create_time',
+                  'modified_time']
 
 
 class VoteRecordSerializer(serializers.ModelSerializer):
