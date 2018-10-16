@@ -49,7 +49,7 @@ class SubscribeMessage(models.Model):
 
 class VoteRecord(models.Model):
     union_id = models.CharField('union_id', max_length=64, primary_key=True)
-    student = models.CharField('投票对象', max_length=30, null=True)
+    student = models.ForeignKey(Student, max_length=30, null=True)
     create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
     modified_time = models.DateTimeField('修改时间', auto_now=True, null=True)
 

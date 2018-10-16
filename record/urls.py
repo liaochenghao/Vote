@@ -4,7 +4,7 @@ from record.views import UserView, VoteRecordView, SubscribeMessageView, Student
 
 router = SimpleRouter()
 router.register(r'user', UserView)
-router.register(r'user/vote', VoteRecordView)
+router.register(r'user/record', VoteRecordView)
 router.register(r'student', StudentView)
 router.register(r'subscribe_message', SubscribeMessageView)
 urlpatterns = router.urls
