@@ -182,3 +182,24 @@ class SubscribeMessageView(mixins.CreateModelMixin, mixins.ListModelMixin, mixin
                            viewsets.GenericViewSet):
     queryset = SubscribeMessage.objects.all()
     serializer_class = SubscribeMessageSerializer
+
+    @list_route(['POST'])
+    def division(self, request):
+        params = request.data
+        union_id = params.get('unionid')
+        open_id = params.get('openid')
+        _type = params.get('type')
+        if not _type:
+            raise serializers.ValidationError('type为空')
+        submes = SubscribeMessage.objects.filter(union_id=union_id)
+        if _type == 1:
+            # 关注北美留学生
+            if submes.exists():
+                submes.update(usa_openid=open_id)
+            SubscribeMessage.objects.create(union_id=union_id, usa_openid=open_id)
+        if _type == 0:
+            # 关注加拿大问吧
+            if submes.exists():
+                submes.update(canada_openid=open_id)
+            SubscribeMessage.objects.create(union_id=union_id, canada_openid=open_id)
+        return Response("现在可以开始投票了")
