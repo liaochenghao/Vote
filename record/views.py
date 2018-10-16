@@ -57,8 +57,6 @@ class VoteRecordView(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Upda
     queryset = VoteRecord.objects.all()
     serializer_class = VoteRecordSerializer
 
-<<<<<<< HEAD
-=======
     # 获取第二天的凌晨0点的时间
     def get_end_time(self):
         tt = datetime.now().timetuple()
@@ -157,7 +155,6 @@ class VoteRecordView(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Upda
         students_rank = redis_client.zrange('students', 0, -1)
         return Response(students_rank)
 
->>>>>>> hu
 
 class StudentView(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin,
                   viewsets.GenericViewSet):
