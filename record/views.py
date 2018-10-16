@@ -21,6 +21,21 @@ class UserView(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.UpdateMode
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    @list_route(['GET'])
+    def authorize(self, request):
+        """客户端登录获取授权"""
+        code = request.query_params.get('code')
+        if not code:
+            raise serializers.ValidationError('Param code is none')
+        res = WxInterfaceUtil.code_authorize(code)
+        user_id = res.get('user_id')
+        response = Response({'user_id': user_id})
+        redis_client.set_instance(str(user_id) + '_1', res.get('token'))
+        response.setdefault('token', res.get('token'))
+        response['Access-Control-Expose-Headers'] = 'token'
+        response['Access-Control-Allow-Origin'] = '*'
+        return response
+
     @list_route(['POST'])
     @transaction.atomic
     def check_account(self, request):

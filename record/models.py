@@ -16,6 +16,7 @@ class User(models.Model):
     name = models.CharField('姓名', max_length=64, null=True)
     email = models.EmailField('邮箱', max_length=30, null=True)
     phone = models.CharField('联系手机', max_length=30, null=True)
+    last_login = models.DateTimeField('最后登录时间', null=True)
     create_time = models.DateTimeField('创建时间', auto_now_add=True, null=True)
     modified_time = models.DateTimeField('修改时间', auto_now=True, null=True)
 

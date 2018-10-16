@@ -169,10 +169,19 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+# 配置不需要认证的后端url
+ignore_auth_urls = ['/api/v1/student/info/authorize/', ]
+
 # redis 配置
 REDIS_CONFIG = {
     'host': 'localhost',
     'port': 6379
+}
+
+# 微信小程序appid secret
+WX_SMART_CONFIG = {
+    'appid': '',
+    'secret': ''
 }
 
 # 北美留学生公众号配置
@@ -195,7 +204,7 @@ SECURE_KEY = {
 }
 # 微信公众号配置
 WX_SMART_CONFIG = {
- 'APP_ID': '',
- 'APP_SECRET': ''
+    'APP_ID': '',
+    'APP_SECRET': ''
 
 }
