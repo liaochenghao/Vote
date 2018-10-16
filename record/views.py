@@ -63,7 +63,7 @@ class UserView(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.UpdateMode
             temp = UserSerializer(user_info).data
             logger.info('Update User from Redis')
             logger.info(temp)
-            redis_client.set_instance(user_info.union_id, temp)
+            redis_client.set_instance(user_info.id, temp)
         return Response()
 
 
