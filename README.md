@@ -23,5 +23,6 @@
 
 **后台接口**:
 
+- [code认证](docs/auth/auth.md)
 - [检查账户](docs/auth/check_account.md)
 

@@ -1,19 +1,16 @@
-### 检查用户账户信息
+### code认证接口
 
 **请求地址**:
 ```
-    POST     api/v1/user/check_account/
+    GET     api/v1/user/authorize/
 ```
 
 **请求参数**:
 ```
     {
-        "user_id"(unionid): str  必填,
-        "nick_name": str,
-        "avatar_url": str,
+        "code": str  必填
     }
 ```
-
 
 **成功返回**：
 ```
@@ -21,7 +18,8 @@
     "code": 0,
     "msg": "请求成功",
     "data": {
-         
+        "user_id": "1",
+        "ticket": "XXXXXXXX"       
     },
     "field_name": ""
 }
