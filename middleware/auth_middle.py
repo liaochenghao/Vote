@@ -20,10 +20,6 @@ class AuthMiddleware(MiddlewareMixin):
         if url_path in ignore_auth_urls:
             return
         logger.info('Auth Url: %s' % url_path)
-        # ticket = request.COOKIES.get('ticket')
-        # if not ticket:
-        #     data = request.GET.dict()
-        #     ticket = data.get('ticket')
         token = request.META.get('HTTP_AUTHORIZATION')
         if not token:
             token = request.META.get('HTTP_TOKEN')
